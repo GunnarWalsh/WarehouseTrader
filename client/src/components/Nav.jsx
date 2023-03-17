@@ -22,7 +22,7 @@ const Nav = (props) => {
     return (
         <div className='d-flex justify-content-evenly align-items-center'>
             <div className='nav'>
-                <Link className='nav-link text-success' to={'/dashboard'}>Home</Link>
+                <Link className='nav-link text-black' to={'/dashboard'}>Home</Link>
                 
                 <Link className='nav-link text-black' to={'/item/new'}>List an Item</Link>
                 <button className='btn btn-dark' onClick={logout} >Account</button> 
