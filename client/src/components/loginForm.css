@@ -1,0 +1,73 @@
+
+.form-styling {
+    border-radius: 25rem;
+    box-shadow: 2px 2px 2px rgb(255, 234, 1);
+    margin-bottom: 10px;
+}
+
+.form-location {
+    width: 320px;
+    height: 420px;
+    top: 50%;
+    left: 50%;
+    background-color: rgb(129, 135, 193);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    box-shadow: 4px 2px 9px rgb(255, 234, 1);
+    opacity: 0.9;
+}
+
+.form-location-reg {
+    width: 420px;
+    height: 650px;
+    top: 50%;
+    left: 50%;
+    background-color: rgb(129, 135, 193);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    box-shadow: 4px 2px 9px rgb(255, 234, 1);
+    opacity: 0.9;
+}
+.nav{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+/* .main-card{
+    background-color: rgb(129, 135, 193);
+    width: 80%; 
+    margin: 0% auto;
+    opacity: 0.5;
+} */
+.background {
+    margin: auto 0px;
+    width: auto;
+    height: 1500px;
+    background: content-box radial-gradient(rgb(16, 5, 230) .5%, rgb(212, 195, 10));
+}
+
+.item-card {
+    background-color: rgb(129, 135, 193);
+    box-shadow: 4px 2px 9px rgb(255, 234, 1);
+    text-transform: capitalize;
+    min-width: 200px;
+}
+
+.link-text {
+    color: rgb(212, 195, 10);
+}
+
+.single-item {
+    background-color: rgb(129, 135, 193);
+    box-shadow: 4px 2px 9px rgb(255, 234, 1);
+    text-transform: capitalize;
+    width: 420px;
+    height: 450px;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    align-items: center;
+}
