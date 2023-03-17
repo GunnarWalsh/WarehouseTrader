@@ -11,7 +11,7 @@ module.exports = {
             }else{
                 const newUser= await User.create(req.body);
                 const userToken= jwt.sign({_id:newUser._id, email:newUser.email}, secretKey, {expiresIn:'2hr'})
-                res.cookie('userToken', userToken, {httpOnly:true, maxAge:7200}).status(201).json({message: 'User logged in', user:newUser})
+                res.cookie('userToken', userToken, {httpOnly:true, maxAge:7200000}).status(201).json({message: 'User logged in', user:newUser})
             }
         }
         catch(err){
@@ -26,7 +26,7 @@ module.exports = {
                 const passwordsMatch = await bcrypt.compare(req.body.password, user.password)
                 if(passwordsMatch){
                     const userToken= jwt.sign({_id:user._id, email:user.email}, secretKey, {expiresIn:'2hr'})
-                    res.cookie('userToken', userToken, {httpOnly:true, maxAge:7200}).status(201).json({message: 'User logged in', user:user}) 
+                    res.cookie('userToken', userToken, {httpOnly:true, maxAge:7200000}).status(201).json({message: 'User logged in', user:user}) 
                 }else{
                     res.status(400).json({message: 'Invalid credentials'})
                 }
