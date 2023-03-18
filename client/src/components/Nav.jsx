@@ -20,7 +20,7 @@ const Nav = (props) => {
         console.log(window.localStorage.getItem('uuid')) 
     }
     return (
-        <div className='d-flex justify-content-evenly align-items-center'>
+        <div className='d-flex justify-content-evenly align-items-stretch'>
             <div className='nav'>
                 <Link className='nav-link text-black' to={'/dashboard'}>Home</Link>
                 

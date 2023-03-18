@@ -41,7 +41,7 @@ const Register = (props) => {
 
     return (
         <div className='form-location-reg'>
-            <h1 className='text-black'>Register!</h1>
+            <h1 className='text-black'>Register</h1>
             <form onSubmit={submitHandler} className='m-2'>
                 <label className='form-label'>First Name:</label>
                 <input className='form-control form-styling' type="text" name='firstName' value={userReg.firstName} onChange={onChangeHandler} />
@@ -83,9 +83,7 @@ const Register = (props) => {
                         <p className='text-danger'>{errors.confirmPassword.message}</p> :
                         null
                 }
-                <button className='btn btn-dark mt-3'>Register</button>
-                <br />
-                <Link className='text-black' to={'/login'}>Already have an account? click here to login</Link>
+                <button className='btn btn-dark'>Register</button>
             </form>
         </div>
     )

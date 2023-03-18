@@ -8,27 +8,32 @@
 .form-location {
     width: 320px;
     height: 420px;
-    top: 50%;
-    left: 50%;
     background-color: rgb(129, 135, 193);
-    position: absolute;
-    transform: translate(-50%, -50%);
     box-sizing: border-box;
     box-shadow: 4px 2px 9px rgb(255, 234, 1);
     opacity: 0.9;
+    position: absolute;
+    top: 1;
+    left: 25%;
+
+    /* /* top: 50%;
+    left: 50%; */
+    /* position: absolute;
+    transform: translate(-50%, -50%); */
 }
 
 .form-location-reg {
     width: 420px;
     height: 650px;
-    top: 50%;
-    left: 50%;
     background-color: rgb(129, 135, 193);
-    position: absolute;
-    transform: translate(-50%, -50%);
     box-sizing: border-box;
     box-shadow: 4px 2px 9px rgb(255, 234, 1);
     opacity: 0.9;
+    top: 10%;
+    left: 55%;
+    position: absolute;
+    /* position: absolute;
+    transform: translate(-50%, -50%); */
 }
 .nav{
     display: flex;
@@ -65,8 +70,8 @@
     text-transform: capitalize;
     width: 420px;
     height: 450px;
-    top: 50%;
-    left: 50%;
+    top: 40%;
+    left: 49%;
     position: absolute;
     transform: translate(-50%, -50%);
     align-items: center;

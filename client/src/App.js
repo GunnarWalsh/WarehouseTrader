@@ -32,8 +32,8 @@ function App() {
     <div className="App background">
       <Nav />
       <Routes>
-        <Route path='/' element={<Register />} />
-        <Route path='login' element={<Login />} />
+        <Route path='/' element={<><Register/><Login/></> } />
+        {/* <Route path='login' element={<Login />} /> */}
         <Route path='dashboard' element={<Dashboard />} />
         <Route path='/item/:id' element={<OneItem />} />
         <Route path='/item/new' element={<ItemForm allItems={allItems} setAllItems={setAllItems} />} />
