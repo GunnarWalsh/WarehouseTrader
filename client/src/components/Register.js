@@ -83,7 +83,7 @@ const Register = (props) => {
                         <p className='text-danger'>{errors.confirmPassword.message}</p> :
                         null
                 }
-                <button className='btn btn-dark'>Register</button>
+                <button className='btn btn-dark mb-2'>Register</button>
             </form>
         </div>
     )

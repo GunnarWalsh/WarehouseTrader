@@ -32,10 +32,10 @@ const Login = (props) => {
     return (
         <div className='form-location'>
             <h1>Login</h1>
-            <form className='' onSubmit={loginHandler}>
+            <form className='p-2' onSubmit={loginHandler}>
 
                 <label className='form-label'>Email:</label>
-                <input className='form-control' type='text' name='email' value={userLogin.email} onChange={changeHandler}></input>
+                <input className='form-control form-styling' type='text' name='email' value={userLogin.email} onChange={changeHandler}></input>
                 {
                     errors ?
                         <p className='text-danger'>{errors.message}</p> :
@@ -49,7 +49,7 @@ const Login = (props) => {
                         <p className='text-danger'>{errors.message}</p> :
                         null
                 }
-                <button className='btn btn-dark'>Login</button>
+                <button className='btn btn-dark mb-2'>Login</button>
             </form>
         </div>
     )

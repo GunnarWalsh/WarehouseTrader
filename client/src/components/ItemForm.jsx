@@ -32,10 +32,10 @@ const ItemForm = (props) => {
             })
     }
     return (
-        <div className='p-4'>
-            <h2>Warehouse Trader</h2>
-            <form className='w-25 m-3 single-item' onSubmit={submitHandler} >
-                <h3>Need some clutter sold?</h3>
+        <div className='form-container'>
+            <h2 className='p-4'>Warehouse Trader</h2>
+            <form className='m-3 single-item ' onSubmit={submitHandler} >
+                <h3 className='m-2'>Need some clutter sold?</h3>
                 <div className='p-2'>
                     <label className='form-label'>Title:</label>
                     <input className='form-control form-styling' type="text" onChange={changeHandler} value={item.name} name='name' />
@@ -64,7 +64,7 @@ const ItemForm = (props) => {
                 <br />
 
 
-                <button className='btn btn-dark'>Post Item</button>
+                <button className='btn btn-dark mb-2'>Post Item</button>
             </form>
         </div>
     )
