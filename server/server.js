@@ -29,7 +29,7 @@ const io = socket(server, {
         credentials: true,
     }
 });
-
+let users = []
 io.on("connection", socket => {
     console.log('socket id: ' + socket.id);
     
@@ -37,5 +37,18 @@ io.on("connection", socket => {
     // NOTE: "connection" is a BUILT IN events listener
     socket.on('disconnect' , () =>{
         console.log('User Disconnected')
+    })
+    socket.on('join-server', username => {
+        console.log('USERNAME', username);
+        let newUser = {id:socket.id, username:username}
+        users.push(newUser)
+        console.log(users);
+        // socket.broadcast.emit()
+
+        io.emit('new-user-joined', users)
+    })
+    socket.on('send-message', data => {
+        console.log(data);
+        io.emit('send-message-to-all-clients', data)
     })
 });

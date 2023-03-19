@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const ItemForm = (props) => {
     const navigate = useNavigate()
     const { allItems, setAllItems } = props
+    const [loginError, setLoginError] = useState()
     const [errors, setErrors] = useState({})
     const [item, setItem] = useState({
         name: '',
@@ -24,10 +25,18 @@ const ItemForm = (props) => {
             })
             .catch((err) => {
                 console.log(err)
-                console.log(err.response.data.error.name);
+                console.log("debugging", err.response.data.verified)
+                // console.log(err.response.data.error.name);
                 if (err.response.data.error) {
                     setErrors(err.response.data.error.errors)
                     console.log('^^Errors^^', errors)
+                }
+                if (err.response.data.verified === false) {
+                    // console.log("Debugging pt 2")
+                    setLoginError(true)
+                }else{
+                    // console.log("new-step")
+                    setLoginError(null)
                 }
             })
     }
@@ -65,6 +74,11 @@ const ItemForm = (props) => {
 
 
                 <button className='btn btn-dark mb-2'>Post Item</button>
+                {
+                    loginError ?
+                        <p className='text-danger'>Login to post!</p> :
+                        null
+                }
             </form>
         </div>
     )

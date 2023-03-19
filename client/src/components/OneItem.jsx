@@ -31,10 +31,6 @@ const OneItem = (props) => {
             })
 
     }
-    const likeHandler = (e) => {
-        setCount(count + 1);
-        console.log(count)
-    }
 
     return (
         <div className='p-4'>
@@ -44,10 +40,9 @@ const OneItem = (props) => {
                     <p>Price: ${singleItem.price}</p>
                     <p>Description: {singleItem.description}</p>
 
-                    <p>Item Likes: {count}</p>
                     <Link to={`/item/${id}/edit`} className='btn btn-warning'>Edit Item</Link>
                     <button className='btn btn-danger' onClick={deleteHandler} >Delete Item</button>
-                    <button className='btn btn-success' onClick={likeHandler}>Like {singleItem.name}</button>
+                    <Link to={`/messages`} className='btn btn-warning'>Message</Link>
 
                 </div>
             </div>

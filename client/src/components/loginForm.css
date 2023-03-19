@@ -1,3 +1,9 @@
+.background {
+    margin: auto 0px;
+    min-height: 1500px;
+    background: content-box radial-gradient(rgb(16, 5, 230) .5%, rgb(212, 195, 10));
+
+}
 .form-styling {
     border-radius: 25rem;
     box-shadow: 2px 2px 2px rgb(255, 234, 1);
@@ -32,12 +38,6 @@
     margin: 20px;
 }
 
-.background {
-    margin: auto 0px;
-    min-height: 1500px;
-    background: content-box radial-gradient(rgb(16, 5, 230) .5%, rgb(212, 195, 10));
-
-}
 
 .item-card {
     background-color: rgb(129, 135, 193);
@@ -45,6 +45,14 @@
     text-transform: capitalize;
     min-width: 200px;
     max-width: 400px;
+}
+.message-card {
+    background-color: rgb(129, 135, 193);
+    box-shadow: 4px 2px 9px rgb(255, 234, 1);
+    min-width: 200px;
+    max-width: 400px;
+    margin: 0 auto;
+    
 }
 
 .link-text {

@@ -9,11 +9,13 @@ import io from 'socket.io-client';
 import OneItem from './components/OneItem';
 import ItemForm from './components/ItemForm';
 import EditItem from './components/EditItem';
+import Chatroom from './components/Chatroom'
 
 function App() {
   const [allItems, setAllItems] = useState([])
   const [socket] = useState(() => io(':8000'));
   const [isConnected, setIsConnected] = useState(socket.connected);
+  const [username, setUsername] = useState('')
 
   useEffect(() => {
     console.log('Is this running?');
@@ -38,6 +40,7 @@ function App() {
         <Route path='/item/:id' element={<OneItem />} />
         <Route path='/item/new' element={<ItemForm allItems={allItems} setAllItems={setAllItems} />} />
         <Route path='/item/:id/edit' element={<EditItem />} />
+        <Route path='/messages' element={<Chatroom socket={socket} username={username} setUsername={setUsername}/>} />
       </Routes>
     </div>
   );
