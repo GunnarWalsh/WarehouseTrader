@@ -5,6 +5,7 @@ const EditItem = (props) => {
     const navigate = useNavigate()
     const { allItems, setAllItems } = props
     const [errors, setErrors] = useState({})
+    const [loginError, setLoginError] = useState()
     const [login, setLogin] = useState({})
     const { id } = useParams()
     const [item, setItem] = useState({
@@ -32,9 +33,18 @@ const EditItem = (props) => {
             })
             .catch((err) => {
                 console.log(err)
-                console.log('^^^^^^^',err.response.data);
-                setErrors(err.response.data.error.errors);
-                setLogin(err.response.data)
+                console.log('^^^^^^^', err.response.data);
+                if (err.response.data.error) {
+                    setErrors(err.response.data.error.errors)
+                    console.log('^^Errors^^', errors)
+                }
+                if (err.response.data.verified === false) {
+                    // console.log("Debugging pt 2")
+                    setLoginError(true)
+                } else {
+                    // console.log("new-step")
+                    setLoginError(null)
+                }
             })
 
     }
@@ -42,10 +52,11 @@ const EditItem = (props) => {
         setItem({ ...item, [e.target.name]: e.target.value })
     }
 
-    return ((
-        <div className='d-flex justify-content-center flex-row'>
+    return (
+        <div className='form-container'>
 
-            <form className='w-25 m-3' onSubmit={submitHandler} >
+            <form className='m-3 single-item' onSubmit={submitHandler} >
+                <h3 className='m-2'>Edit {item.name}</h3>
                 <div className='p-2'>
                     <label className='form-label'>Item Name:</label>
                     <input className='form-control form-styling' type="text" onChange={changeHandler} value={item.name} name='name' />
@@ -58,7 +69,7 @@ const EditItem = (props) => {
                     <label className='form-label'>Item Price:</label>
                     <input className='form-control form-styling' type="number" onChange={changeHandler} value={item.price} name='price' />
                     {
-                        errors.type ?
+                        errors.price ?
                             <p className='text-danger'>{errors.price.message}</p> :
                             null
                     }
@@ -73,9 +84,14 @@ const EditItem = (props) => {
                 </div>
                 <br />
                 <button className='btn btn-dark'>Edit</button>
+                {
+                    loginError ?
+                        <p className='text-danger'>Login to edit!</p> :
+                        null
+                }
             </form>
         </div>
-    ))
+    )
 }
 
 export default EditItem;

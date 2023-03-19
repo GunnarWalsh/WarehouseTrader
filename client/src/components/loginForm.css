@@ -75,3 +75,10 @@
     justify-content: center;
     align-items: center;
 }
+
+.messages{
+    border: 2px solid rgb(16, 5, 230);
+    border-radius: 25px;
+    margin: 20px;
+    color: rgb(255, 234, 1);
+}

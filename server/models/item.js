@@ -10,7 +10,7 @@ const ItemSchema = new mongoose.Schema({
     price:{
         type: Number,
         required:[true, 'Must complete field'],
-        min:[0, 'Item cannot be nagative!']
+        min:[0, 'Item cannot be negative!']
         
     },
     description:{

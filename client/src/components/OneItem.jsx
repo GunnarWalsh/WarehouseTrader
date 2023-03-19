@@ -7,7 +7,7 @@ const OneItem = (props) => {
     const { id } = useParams()
     const nav = useNavigate()
     const [singleItem, setSingleItem] = useState({})
-    const [count, setCount] = React.useState(0);
+    const [loginError, setLoginError] = useState()
 
 
     useEffect(() => {
@@ -28,6 +28,13 @@ const OneItem = (props) => {
             })
             .catch((err) => {
                 console.log(err);
+                if (err.response.data.verified === false) {
+                    // console.log("Debugging pt 2")
+                    setLoginError(true)
+                }else{
+                    // console.log("new-step")
+                    setLoginError(null)
+                }
             })
 
     }
@@ -35,14 +42,19 @@ const OneItem = (props) => {
     return (
         <div className='p-4'>
             <div className='d-flex flex-wrap justify-content-around'>
-                <div className='p-4 m-3 w-25 single-item'>
+                <div className='p-4 m-3 single-item'>
                     <h1 className='m-4'>{singleItem.name}</h1>
                     <p>Price: ${singleItem.price}</p>
                     <p>Description: {singleItem.description}</p>
 
-                    <Link to={`/item/${id}/edit`} className='btn btn-warning'>Edit Item</Link>
+                    {/* <Link to={`/item/${id}/edit`} className='btn btn-warning'>Edit Item</Link> */}
                     <button className='btn btn-danger' onClick={deleteHandler} >Delete Item</button>
                     <Link to={`/messages`} className='btn btn-warning'>Message</Link>
+                    {
+                        loginError ?
+                            <p className='text-danger'>Login to use this function!</p> :
+                            null
+                    }
 
                 </div>
             </div>
