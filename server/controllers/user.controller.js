@@ -7,7 +7,7 @@ module.exports = {
         try{
             const potentialUser = await User.findOne({email:req.body.email});
             if(potentialUser){
-                res.status(400).json({message:"Email has ben used!"})
+                res.status(400).json({message:"Email has been used!"})
             }else{
                 const newUser= await User.create(req.body);
                 const userToken= jwt.sign({_id:newUser._id, email:newUser.email}, secretKey, {expiresIn:'2hr'})
