@@ -7,6 +7,7 @@ const Homepage = (props) => {
 
     const joinServer = (e) => {
         e.preventDefault();
+        
         socket.emit('join-server', username)
     }
 
@@ -23,7 +24,6 @@ const Homepage = (props) => {
     const sendMessage = (e) => {
         e.preventDefault()
         socket.emit('send-message', { message: input, username: username })
-        e.target.reset()
     }
     return (
         <div className='message-card'>
