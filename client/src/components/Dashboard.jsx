@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const AllItems = (props) => {
     const [allItems, setAllItems] = useState([])
@@ -21,8 +21,8 @@ const AllItems = (props) => {
             <h2 className='mb-5'>All Items</h2>
             <div className='d-flex flex-wrap justify-content-around'>
                 {
-                    allItems.map((item) => (
-                        <div className='p-4 m-3 w-25 item-card' key={item.id}>
+                    allItems.map((item , index) => (
+                        <div className='p-4 m-3 w-25 item-card' key={index}>
                             <p>Item Name: {item.name}</p>
                             <p>Item Price: ${item.price}</p>
                             <Link to={`/item/${item._id}`} className='link-text'>Details</Link>  <Link to={`/item/${item._id}/edit`}  className='link-text'>Edit</Link> 

@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 const Homepage = (props) => {
     const { socket, username, setUsername } = props
     const [users, setUsers] = useState([])
     const [messages, setMessages] = useState([])
     const [input, setInput] = useState('')
-    const navigate = useNavigate()
 
     const joinServer = (e) => {
         e.preventDefault();
@@ -21,7 +19,7 @@ const Homepage = (props) => {
             // console.log(data);
             setMessages(prevMessages => [...prevMessages, data])
         })
-    }, [])
+    },[])
     const sendMessage = (e) => {
         e.preventDefault()
         socket.emit('send-message', { message: input, username: username })
@@ -36,13 +34,13 @@ const Homepage = (props) => {
                 <button className='btn btn-success m-2'>Join</button>
             </form>
             {
-                users.map((user) => (
-                    <p className='text-danger'>{user.username} joined the chat</p>
+                users.map((user, index) => (
+                    <p key={index} className='text-danger'>{user.username} joined the chat</p>
                 ))
             }
             {
-                messages.map((message) => (
-                    <p className='messages'>{message.username} : {message.message}</p>
+                messages.map((message, index) => (
+                    <p key={index} className='messages'>{message.username} : {message.message}</p>
                 ))
             }
             <form onSubmit={sendMessage}>

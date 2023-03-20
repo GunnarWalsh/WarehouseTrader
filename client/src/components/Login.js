@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import './loginForm.css'
 const Login = (props) => {
     const navigate = useNavigate()
-    const path = useLocation().pathname;
-    const location = path.split("/")[1];
     const [errors, setErrors] = useState({})
     const [userLogin, setUserLogin] = useState({
         email: '',
